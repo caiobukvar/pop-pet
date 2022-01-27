@@ -1,5 +1,8 @@
 import style from './style.module.scss';
-
+import MagnifyingGlass from '../../assets/img/magnifying-glass.svg';
+import ShoppingCart from '../../assets/img/shopping-cart/shopping-cart.svg';
+import Login from '../../assets/img/login-button.svg';
+import { Link } from 'react-router-dom';
 export function Home() {
 
   const products = [
@@ -19,18 +22,34 @@ export function Home() {
       <div className={style.header}>
         <h2>PET POP</h2>
         <div className={style.filter}>
-          <input type="text" />
+          <input
+            className={style['filter-input']}
+            type="text"
+            placeholder="Buscar item por nome, categoria, preço..."
+          />
+          <button className={style['filter-button']} type="button">
+            <img
+              src={MagnifyingGlass}
+              alt="magnigying glass for filter input"
+            />
+          </button>
         </div>
         <div className={style['header-actions']}>
-          <div>
-            carrinho aqui
-          </div>
-          <div>
-            Login/Register aqui
-          </div>
+          <button className={style.cart} type="button">
+            <img src={ShoppingCart} alt="" />
+          </button>
+          <button className={style.login} type="button">
+            <p>Login</p>
+            <img src={Login} alt="" />
+          </button>
+          <Link to="/register">
+            <p className={style.register}>Register</p>
+          </Link>
         </div>
       </div>
       <div className={style.content}>
+        <div className={style.outdoor} />
+        <h2>Conheça nossos produtos</h2>
         <div className={style.products}>
           {products.map(product => (
             <div key={product.id} className={style['card-container']}>

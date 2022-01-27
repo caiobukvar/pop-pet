@@ -7,46 +7,189 @@ $babyblue: #D4F1F4;
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   height: 100%;
 
   .header {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     background-color: $bluegrotto;
     height: 100px;
+    width: 100%;
 
-    .filter {}
+    .filter {
+      position: relative;
+
+      .filter-input {
+        padding: 5px 30px;
+        height: 40px;
+        width: 400px;
+        border: 0;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        font-family: 'Montserrat', sans-serif;
+        color: $bluegrotto;
+      }
+
+      .filter-input::placeholder {
+        color: $bluegrotto;
+        opacity: 1;
+      }
+
+      .filter-input:hover {
+        background-color: $bluegreen;
+        outline: 0;
+      }
+
+      .filter-input:focus {
+        outline: 0.5px solid $navyblue;
+      }
+
+      .filter-button {
+        all: unset;
+        cursor: pointer;
+        position: absolute;
+        right: 15px;
+        top: 0;
+        bottom: 0;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
 
     .header-actions {
       display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      height: 100%;
+
+      .cart {
+        all: unset;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+        background-color: $babyblue;
+        border: 0.5px solid $bluegreen;
+        box-sizing: border-box;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+
+        img {
+          align-self: center;
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .cart:hover {
+        background-color: $bluegreen;
+      }
+
+      .login {
+        all: unset;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        width: 120px;
+        height: 60px;
+        background-color: $babyblue;
+        border: 0.5px solid $bluegreen;
+        box-sizing: border-box;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+
+        p {
+          margin-left: 20px;
+          font-weight: 500;
+          color: $navyblue;
+        }
+
+        img {
+          align-self: center;
+          width: 50px;
+          height: 32px;
+        }
+      }
+
+      .login:hover {
+        background-color: $bluegreen;
+      }
+
+      a {
+        all: unset;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      .register {
+        color: $navyblue;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .register:hover {
+        color: $babyblue;
+      }
     }
   }
 
   .content {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     height: 100%;
-    background-color: $bluegreen;
+    max-width: 100%;
+    margin-bottom: 100px;
+    gap: 50px;
+
+    .outdoor {
+      display: flex;
+      align-self: center;
+      background-image: url(../../assets/img/animals-bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 250px;
+    }
 
     .products {
       display: flex;
+      flex-direction: row;
       justify-content: center;
-      gap: 30px;
-      max-width: 90%;
+      gap: 40px;
+      max-width: 75%;
+      flex-wrap: wrap;
 
       .card-container {
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
         width: 250px;
         height: 300px;
         background-color: $babyblue;
         border: 0.5px solid #D1D2E3;
         box-sizing: border-box;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 15px;
       }
     }
