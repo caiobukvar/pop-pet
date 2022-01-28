@@ -21,7 +21,7 @@ export function AppRoutes() {
   return (
     // <StoresProvider>
     <Routes>
-      <Route path="/" exact render={() => <Navigate to="/login" />} />
+      <Route path="/" exact render={() => <Navigate to="/home" />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
 
