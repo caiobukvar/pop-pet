@@ -25,10 +25,10 @@ export function AppRoutes() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
-        {/* <ProtectedRoutes path="/home"> */}
-        <Route index path="/home" element={<Home />} />
-        <Route path="/home/admin" element={<Admin />} />
-        {/* </ProtectedRoutes> */}
+        <ProtectedRoutes path="/home">
+          <Route index path="/home" element={<Home />} />
+          <Route path="/home/admin" element={<Admin />} />
+        </ProtectedRoutes>
       </Routes>
     </StoresProvider>
   );
