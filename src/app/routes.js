@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 // import { StoresProvider, useStores } from '../stores';
 
 const Home = React.lazy(async () => import('../containers/Home').then((m) => ({ default: m.Home })));
@@ -17,19 +17,19 @@ const Admin = React.lazy(async () => import('../containers/Admin').then((m) => (
 //     );
 // }
 
-export function AppRoutes() {
+export function Routes() {
   return (
-    // <StoresProvider>
-    <Routes>
-      <Route path="/" exact render={() => <Navigate to="/home" />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
+    <Switch>
+      {/* <StoresProvider> */}
+      <Route path="/" exact render={() => <Redirect to="/home" />} />
+      <Route path="/register" component={Register} />
+      <Route path="/login" component={Login} />
 
       {/* <ProtectedRoutes path="/home"> */}
-      <Route path="/home" element={<Home />} />
-      <Route path="/home/admin" element={<Admin />} />
+      <Route path="/home" component={Home} />
+      <Route path="/home/admin" component={Admin} />
       {/* </ProtectedRoutes> */}
       {/* </StoresProvider> */}
-    </Routes>
+    </Switch>
   );
 }

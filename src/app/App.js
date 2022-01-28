@@ -1,10 +1,10 @@
 import React from 'react';
-import { AppRoutes } from './routes';
+import { Routes } from './routes';
 
 function App() {
   return (
     <React.Suspense fallback={null}>
-      <AppRoutes />
+      <Routes />
     </React.Suspense>
   );
 }
