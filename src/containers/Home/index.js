@@ -9,15 +9,15 @@ export function Home() {
   const [searchTerm, setSearchTerm] = useState();
 
   const products = [
-    { id: 1, name: 'bolinha lisa', category: 'brinquedos', price: '12,90' },
-    { id: 2, name: 'osso', category: 'brinquedos', price: '5' },
-    { id: 3, name: 'ração', category: 'alimentos', price: '27,90' },
-    { id: 4, name: 'coleira', category: 'utilidades', price: '22,90' },
-    { id: 5, name: 'cama para cachorros', category: 'camas', price: '39,90' },
-    { id: 6, name: 'cama para gatos', category: 'camas', price: '29,90' },
-    { id: 7, name: 'arranhador', category: 'brinquedos', price: '32' },
-    { id: 8, name: 'catnip', category: 'utilidades', price: '15' },
-    { id: 9, name: 'bolinha espinhada', category: 'brinquedos', price: '10' },
+    { id: 1, name: 'Smooth rubber ball', category: 'Toys', price: 1290, stock: 6 },
+    { id: 2, name: 'Chewing bone', category: 'Toys', price: 500, stock: 3 },
+    { id: 3, name: 'Dog food - Special Dog', category: 'Food', price: 2790, stock: 12 },
+    { id: 4, name: 'Collar', category: 'Utility', price: 2290, stock: 4 },
+    { id: 5, name: 'Bed for dogs', category: 'Utility', price: 3990, stock: 1 },
+    { id: 6, name: 'Bed for cats', category: 'Utility', price: 2990, stock: 0 },
+    { id: 7, name: 'Scratcher for cats', category: 'Toys', price: 3200, stock: 2 },
+    { id: 8, name: 'Catnip', category: 'Utility', price: 1500, stock: 1 },
+    { id: 9, name: 'Clover rubber ball', category: 'Toys', price: 1000, stock: 0 },
   ]
 
   function inputFilter(val) {
