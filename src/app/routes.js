@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 // import { StoresProvider, useStores } from '../stores';
 
 const Home = React.lazy(async () => import('../containers/Home').then((m) => ({ default: m.Home })));
@@ -26,7 +26,7 @@ export function AppRoutes() {
       <Route path="/login" element={<Login />} />
 
       {/* <ProtectedRoutes path="/home"> */}
-      <Route index path="/home" element={<Home />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/home/admin" element={<Admin />} />
       {/* </ProtectedRoutes> */}
       {/* </StoresProvider> */}
