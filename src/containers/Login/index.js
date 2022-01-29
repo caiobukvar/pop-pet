@@ -1,7 +1,37 @@
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import style from './style.module.scss';
+import { useStores } from '../../stores';
 
 export function Login() {
+  const { userStore: { setUserData, setToken } } = useStores();
+
+  const {
+    register, handleSubmit, watch, formState: { errors },
+  } = useForm();
+
+  async function onSubmit({ username, password }) {
+    try {
+      const body = { userName: username, password };
+      const result = await api.post('/login', body);
+
+      if (result.status !== 200) {
+        throw 'Falha ao efetuar o login';
+      }
+
+      const { data: { token, user: userData } } = result;
+      setUserData(userData);
+      setToken(token);
+
+      history.push(`/home/${userData.userType.toLowerCase()}`);
+    } catch (error) {
+      const { request } = error;
+      if (request) {
+        notify('error', request.response);
+      }
+    }
+  }
+
   return (
     <div className={style.container}>
       <div className={style.content}>
@@ -19,6 +49,7 @@ export function Login() {
                 type="text"
                 id="username"
                 placeholder="Insert your username"
+                {...register('username')}
               />
             </div>
             <div className={style.input}>
@@ -27,10 +58,11 @@ export function Login() {
                 type="text"
                 id="password"
                 placeholder="Insert your password"
+                {...register('password')}
               />
             </div>
           </div>
-          <button>
+          <button onSubmit={handleSubmit(onSubmit)}>
             Login
           </button>
         </form>
