@@ -1,14 +1,19 @@
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import style from './style.module.scss';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import api from '../../services/api';
 import { useStores } from '../../stores';
+import notify from '../../utils/notify';
+import style from './style.module.scss';
 
 export function Login() {
   const { userStore: { setUserData, setToken } } = useStores();
 
   const {
-    register, handleSubmit, watch, formState: { errors },
+    register, handleSubmit, formState: { errors },
   } = useForm();
+
+  const history = useHistory();
 
   async function onSubmit({ username, password }) {
     try {
@@ -23,7 +28,7 @@ export function Login() {
       setUserData(userData);
       setToken(token);
 
-      history.push(`/home/${userData.userType.toLowerCase()}`);
+      history.push('/home');
     } catch (error) {
       const { request } = error;
       if (request) {
