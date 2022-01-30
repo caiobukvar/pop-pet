@@ -17,8 +17,10 @@ export function Login() {
 
   async function onSubmit({ username, password }) {
     try {
-      const body = { userName: username, password };
+      const body = { username, password };
       const result = await api.post('/login', body);
+
+      console.log(result);
 
       if (result.status !== 200) {
         throw 'Falha ao efetuar o login';
@@ -45,7 +47,7 @@ export function Login() {
             Welcome to Pet Pop!
           </h2>
         </div>
-        <form className={style.form}>
+        <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
           <h2>Login area:</h2>
           <div className={style['input-container']}>
             <div className={style.input}>
@@ -54,20 +56,20 @@ export function Login() {
                 type="text"
                 id="username"
                 placeholder="Insert your username"
-                {...register('username')}
+                {...register('username', { required: true })}
               />
             </div>
             <div className={style.input}>
               <label htmlFor="password">Password</label>
               <input
-                type="text"
+                type="password"
                 id="password"
                 placeholder="Insert your password"
-                {...register('password')}
+                {...register('password', { required: true })}
               />
             </div>
           </div>
-          <button onSubmit={handleSubmit(onSubmit)}>
+          <button type="submit" onSubmit={handleSubmit(onSubmit)}>
             Login
           </button>
         </form>

@@ -6,12 +6,20 @@ import AddToCart from '../../assets/img/shopping-cart/shopping-cart-add.svg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useStores } from '../../stores';
 
 export function Home() {
+  const { userStore: { token, handleClearUserData } } = useStores();
+
   const [searchTerm, setSearchTerm] = useState('');
   const history = useHistory();
 
   function handleLogin() {
+    history.push("/login");
+  }
+
+  function handleLogout() {
+    handleClearUserData();
     history.push("/login");
   }
 
@@ -63,10 +71,20 @@ export function Home() {
           <button className={style.cart} type="button">
             <img src={ShoppingCart} alt="" />
           </button>
-          <button className={style.login} type="button" onClick={handleLogin}>
-            <p>Login</p>
-            <img src={Login} alt="" />
-          </button>
+          {
+            token
+              ?
+              <button className={style.login} type="button" onClick={handleLogout}>
+                <p>Logout</p>
+                <img src={Login} alt="" />
+              </button>
+              :
+              <button className={style.login} type="button" onClick={handleLogin}>
+                <p>Login</p>
+                <img src={Login} alt="" />
+              </button>
+          }
+
           <Link to="/register">
             <p className={style.register}>Register</p>
           </Link>
