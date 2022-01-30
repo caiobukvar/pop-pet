@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  height: 100vh;
+
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 80%;
+    background-color: green;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-self: center;
+        width: 50%;
+
+        .input {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          label {
+            font-weight: 500;
+          }
+
+          input {
+            width: 250px;
+            height: 40px;
+          }
+
+        }
+      }
+    }
+  }
+}
