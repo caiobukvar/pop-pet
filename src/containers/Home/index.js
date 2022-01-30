@@ -37,7 +37,15 @@ export function Home() {
       <Header setSearchTerm={setSearchTerm} />
       <div className={style.content}>
         <div className={style.outdoor} />
-        <h2>Take a look at our products:</h2>
+        <div className={style['welcome-container']}>
+          <div className={style.welcome}>
+            <h1>Welcome to POP PET!</h1>
+            <div>
+              <h2>Here you can find every sorts of things for your pet!</h2>
+            </div>
+            <p className={style.text}>Have a look at our products:</p>
+          </div>
+        </div>
         <div className={style.products}>
           {products.filter(inputFilter).map((product) => (
             <div key={product.id} className={style['card-container']}>

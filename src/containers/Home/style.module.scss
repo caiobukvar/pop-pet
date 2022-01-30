@@ -13,7 +13,6 @@ $babyblue: #D4F1F4;
   .content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -29,7 +28,45 @@ $babyblue: #D4F1F4;
       background-position: center;
       width: 100%;
       height: 300px;
+      margin-bottom: -50px;
     }
+
+    .welcome-container {
+      display: flex;
+      justify-content: center;
+      background-color: $bluegreen;
+      width: 100%;
+
+      .welcome {
+        width: 75%;
+        text-align: center;
+        color: $navyblue;
+
+        h1 {
+          font-size: 32px;
+          font-weight: 600;
+          font-family: 'Montserrat', sans-serif;
+          margin-top: 30px;
+        }
+
+        h2 {
+          font-size: 20px;
+          margin-top: 50px;
+          margin-bottom: 80px;
+        }
+
+        .text {
+          text-align: left;
+          font-size: 20px;
+          font-weight: 500;
+          color: $navyblue;
+          font-family: 'Montserrat', sans-serif;
+          margin-bottom: 25px;
+        }
+      }
+    }
+
+
 
     .products {
       display: flex;
@@ -38,6 +75,7 @@ $babyblue: #D4F1F4;
       gap: 40px;
       max-width: 75%;
       flex-wrap: wrap;
+
 
       .card-container {
         display: flex;
@@ -56,7 +94,7 @@ $babyblue: #D4F1F4;
 
         h3 {
           font-weight: 500;
-          color: $navyblue
+          color: $navyblue;
         }
 
         .card-image {
