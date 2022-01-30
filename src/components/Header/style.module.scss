@@ -1,0 +1,144 @@
+$navyblue: #05445E;
+$bluegrotto: #189AB4;
+$bluegreen: #75E6DA;
+$babyblue: #D4F1F4;
+
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  align-items: center;
+  background-color: $bluegrotto;
+  height: 100px;
+  width: 100%;
+
+  .filter {
+    position: relative;
+
+    .filter-input {
+      padding: 5px 30px;
+      height: 40px;
+      width: 500px;
+      border: 0;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      font-family: 'Montserrat', sans-serif;
+      color: $bluegrotto;
+    }
+
+    .filter-input::placeholder {
+      color: $bluegrotto;
+      opacity: 1;
+    }
+
+    .filter-input:hover {
+      background-color: $bluegreen;
+      outline: 0;
+    }
+
+    .filter-input:focus {
+      outline: 0.5px solid $navyblue;
+    }
+
+    .filter-button {
+      all: unset;
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      top: 0;
+      bottom: 0;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+
+    .cart {
+      all: unset;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
+      background-color: $babyblue;
+      border: 0.5px solid $bluegreen;
+      box-sizing: border-box;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 15px;
+
+      img {
+        align-self: center;
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .cart:hover {
+      background-color: $bluegreen;
+    }
+
+    .login {
+      all: unset;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      width: 120px;
+      height: 60px;
+      background-color: $babyblue;
+      border: 0.5px solid $bluegreen;
+      box-sizing: border-box;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 15px;
+
+      p {
+        margin-left: 20px;
+        font-weight: 500;
+        color: $navyblue;
+      }
+
+      img {
+        align-self: center;
+        width: 50px;
+        height: 32px;
+      }
+    }
+
+    .login:hover {
+      background-color: $bluegreen;
+    }
+
+    a {
+      all: unset;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .register {
+      color: $navyblue;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .register:hover {
+      color: $babyblue;
+    }
+  }
+}

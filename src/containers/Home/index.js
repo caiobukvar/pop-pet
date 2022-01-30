@@ -1,27 +1,10 @@
 import style from './style.module.scss';
-import MagnifyingGlass from '../../assets/img/magnifying-glass.svg';
-import ShoppingCart from '../../assets/img/shopping-cart/shopping-cart.svg';
-import Login from '../../assets/img/login-button.svg';
 import AddToCart from '../../assets/img/shopping-cart/shopping-cart-add.svg';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { useStores } from '../../stores';
+import Header from '../../components/Header';
 
 export function Home() {
-  const { userStore: { token, handleClearUserData } } = useStores();
-
   const [searchTerm, setSearchTerm] = useState('');
-  const history = useHistory();
-
-  function handleLogin() {
-    history.push("/login");
-  }
-
-  function handleLogout() {
-    handleClearUserData();
-    history.push("/login");
-  }
 
   const products = [
     { id: 1, name: 'Smooth rubber ball', category: 'Toys', price: 12.90, stock: 6 },
@@ -51,45 +34,7 @@ export function Home() {
 
   return (
     <div className={style.container}>
-      <div className={style.header}>
-        <h2>PET POP</h2>
-        <div className={style.filter}>
-          <input
-            className={style['filter-input']}
-            type="text"
-            placeholder="Buscar item por nome, categoria, preço..."
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button className={style['filter-button']} type="button">
-            <img
-              src={MagnifyingGlass}
-              alt="magnigying glass for filter input"
-            />
-          </button>
-        </div>
-        <div className={style['header-actions']}>
-          <button className={style.cart} type="button">
-            <img src={ShoppingCart} alt="" />
-          </button>
-          {
-            token
-              ?
-              <button className={style.login} type="button" onClick={handleLogout}>
-                <p>Logout</p>
-                <img src={Login} alt="" />
-              </button>
-              :
-              <button className={style.login} type="button" onClick={handleLogin}>
-                <p>Login</p>
-                <img src={Login} alt="" />
-              </button>
-          }
-
-          <Link to="/register">
-            <p className={style.register}>Register</p>
-          </Link>
-        </div>
-      </div>
+      <Header setSearchTerm={setSearchTerm} />
       <div className={style.content}>
         <div className={style.outdoor} />
         <h2>Take a look at our products:</h2>
