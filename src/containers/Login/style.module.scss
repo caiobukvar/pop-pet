@@ -4,15 +4,12 @@ $bluegreen: #75e6da;
 $babyblue: #D4F1F4;
 
 .container {
-  display: block;
-  position: absolute;
-  justify-content: flex-end;
-  align-self: center;
-  left: 0;
-  bottom: 0;
-  z-index: 9999;
+  display: flex;
   width: 100%;
   height: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   -webkit-transition: 0.5s;
   overflow: auto;
   transition: all 0.3s linear;
@@ -20,87 +17,14 @@ $babyblue: #D4F1F4;
   backdrop-filter: blur(6px);
 
   .content {
-    position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 0 40px 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    left: 0;
+    width: 65%;
+    height: 80%;
     background-color: #fefefe;
-    margin: auto;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    min-width: 650px;
-    max-width: 800px;
-    height: 570px;
-
-    .image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: 500;
-      height: 150px;
-      width: 100%;
-      background: $bluegrotto;
-      border-radius: 10px 10px 0 0;
-    }
-
-    .form {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-
-      h2 {
-        color: $navyblue;
-      }
-
-      .input-container {
-        display: flex;
-        flex-direction: column;
-
-        .input {
-          display: flex;
-          flex-direction: column;
-          gap: 5px;
-          margin-bottom: 10px;
-
-          label {
-            font-weight: 500;
-            font-size: 18px;
-            color: $navyblue;
-          }
-
-          input {
-            height: 40px;
-            width: 250px;
-            border: 0.5px solid $navyblue;
-            border-radius: 10px;
-            padding: 12px;
-            color: $navyblue;
-          }
-        }
-      }
-
-      button {
-        all: unset;
-        text-align: center;
-        width: 150px;
-        height: 50px;
-        border: 0.5px solid $navyblue;
-        border-radius: 10px;
-        background: $bluegreen;
-        color: $navyblue;
-        font-size: 16px;
-        font-weight: 600;
-      }
-    }
-
+    box-sizing: border-box;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
   }
 }
