@@ -1,11 +1,30 @@
 import style from './style.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../../components/Header';
+import api from '../../services/api';
 import ModalProductDetails from '../../components/ModalProductDetails';
+import notify from '../../utils/notify';
 
 export function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [productModalOpen, setProductModalOpen] = useState(false);
+
+  useEffect(() => {
+    try {
+      const result = api.get('/products');
+
+      if (result.status !== 200) {
+        throw 'Couldn&apos;t reach data!';
+      }
+
+      console.log(result);
+    } catch (error) {
+      const { request } = error;
+      if (request) {
+        notify('error', request.response);
+      }
+    }
+  }, []);
 
   const products = [
     { id: 1, name: 'Smooth rubber ball', category: 'Toys', price: 12.90, stock: 6 },

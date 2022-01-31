@@ -16,7 +16,6 @@ export default function Header({ setSearchTerm }) {
     history.push("/login");
   }
 
-
   function handleLogout() {
     handleClearUserData();
     history.push("/login");
@@ -56,9 +55,10 @@ export default function Header({ setSearchTerm }) {
               <img src={Login} alt="" />
             </button>
         }
-        <Link to="/register">
-          <p className={style.register}>Register</p>
-        </Link>
+        {!token &&
+          <Link to="/register">
+            <p className={style.register}>Register</p>
+          </Link>}
       </div>
     </div>
   );
