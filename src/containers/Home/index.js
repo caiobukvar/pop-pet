@@ -2,9 +2,11 @@ import style from './style.module.scss';
 import AddToCart from '../../assets/img/shopping-cart/shopping-cart-add.svg';
 import { useState } from 'react';
 import Header from '../../components/Header';
+import ModalProductDetails from '../../components/ModalProductDetails';
 
 export function Home() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [productModalOpen, setProductModalOpen] = useState(false);
 
   const products = [
     { id: 1, name: 'Smooth rubber ball', category: 'Toys', price: 12.90, stock: 6 },
@@ -32,10 +34,17 @@ export function Home() {
     return null;
   }
 
+  function handleProductModal() {
+    setProductModalOpen(true);
+  }
+
   return (
     <div className={style.container}>
       <Header setSearchTerm={setSearchTerm} />
       <div className={style.content}>
+        {productModalOpen &&
+          <ModalProductDetails setProductModalOpen={setProductModalOpen} />
+        }
         <div className={style.outdoor} />
         <div className={style['welcome-container']}>
           <div className={style.welcome}>
@@ -48,7 +57,7 @@ export function Home() {
         </div>
         <div className={style.products}>
           {products.filter(inputFilter).map((product) => (
-            <div key={product.id} className={style['card-container']}>
+            <button type="button" key={product.id} className={style['card-container']} onClick={handleProductModal}>
               <h3>{product.name}</h3>
               <div className={style['card-image']}>
                 <img src={product.image} alt="" />
@@ -68,7 +77,7 @@ export function Home() {
                   </button>
                 }
               </div>
-            </div>
+            </button>
           )
           )}
         </div>
