@@ -1,13 +1,17 @@
 import style from './style.module.scss';
+import AddToCart from '../../assets/img/shopping-cart/shopping-cart-add.svg';
+
 
 export default function ModalProductDetails({ setProductModalOpen }) {
   return (
     <div className={style.content}>
       <div className={style.container}>
-        <button type="button" onClick={() => setProductModalOpen(false)}>
-          <img src="#" alt="" />
-          close
-        </button>
+        <div className={style.header}>
+          <button className={style['close-btn']} type="button" onClick={() => setProductModalOpen(false)}>
+            <img src="#" alt="" />
+            X
+          </button>
+        </div>
         <div className={style.product}>
           <h2>Product Name</h2>
           <img src="#" alt="product showcase" />
@@ -16,12 +20,13 @@ export default function ModalProductDetails({ setProductModalOpen }) {
               <p>price</p>
               <p>amount available</p>
             </div>
-            <p>description</p>
-            <div className={style['button-container']}>
-              <button>
-                Add to cart
-              </button>
-            </div>
+            <p className={style.description}>description</p>
+          </div>
+          <div className={style['button-container']}>
+            <button className={style['add-to-cart']}>
+              Add to cart
+              <img src={AddToCart} alt="cart icon" />
+            </button>
           </div>
         </div>
       </div>

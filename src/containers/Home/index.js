@@ -50,7 +50,7 @@ export function Home() {
           <div className={style.welcome}>
             <h1>Welcome to POP PET!</h1>
             <div>
-              <h2>Here you can find every sorts of things for your pet!</h2>
+              <h2>Here you can find every sort of things for your pet!</h2>
             </div>
             <p className={style.text}>Take a look on some of our products:</p>
           </div>
