@@ -13,7 +13,7 @@ function ProtectedRoutes(props) {
   const { children } = props;
 
   return (
-    <Route render={() => (token ? children : <Redirect to="/login" />)} />
+    <Route render={() => (token ? children : <Redirect to="/home" />)} />
   );
 }
 
