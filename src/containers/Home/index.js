@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 
 export function Home() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [productModalOpen, setProductModalOpen] = useState(false);
 
   const products = [
     { id: 1, name: 'Smooth rubber ball', category: 'Toys', price: 12.90, stock: 6 },
@@ -31,6 +32,8 @@ export function Home() {
     return null;
   }
 
+
+
   return (
     <div className={style.container}>
       <Header setSearchTerm={setSearchTerm} />
@@ -54,6 +57,7 @@ export function Home() {
                   style['card-container-unavailable'] :
                   style['card-container']
               }
+              onClick={() => setProductModalOpen(true)}
             >
               <h3>{product.name}</h3>
               <div className={style['card-image']}>
