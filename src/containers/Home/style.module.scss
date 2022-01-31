@@ -78,6 +78,7 @@ $babyblue: #D4F1F4;
 
 
       .card-container {
+        all: unset;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -91,6 +92,7 @@ $babyblue: #D4F1F4;
         box-sizing: border-box;
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 15px;
+        cursor: pointer;
 
         h3 {
           font-weight: 500;
@@ -107,32 +109,6 @@ $babyblue: #D4F1F4;
 
         .card-bottom {
 
-          p {
-            color: red;
-            font-weight: 500;
-            font-size: 18px;
-          }
-
-          .add-to-cart {
-            all: unset;
-            display: flex;
-            text-decoration: underline;
-            align-items: center;
-            justify-content: space-evenly;
-            position: relative;
-            cursor: pointer;
-            color: $navyblue;
-            border: 1px solid $bluegrotto;
-            background-color: $bluegreen;
-            border-radius: 10px;
-            width: 160px;
-            height: 40px;
-
-            img {
-              width: 25px;
-            }
-          }
-
           .add-to-cart-disabled {
             display: flex;
             align-items: center;
@@ -148,6 +124,61 @@ $babyblue: #D4F1F4;
           }
         }
       }
+
+      .card-container-unavailable {
+        all: unset;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        width: 225px;
+        height: 300px;
+        padding: 20px;
+        background-color: rgb(223, 77, 77, 0.2);
+        border: 0.5px solid #D1D2E3;
+        box-sizing: border-box;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        cursor: pointer;
+
+        h3 {
+          font-weight: 500;
+          color: $navyblue;
+        }
+
+        .card-image {
+
+          img {
+            width: 170px;
+            height: 120px;
+          }
+        }
+
+        .card-bottom {
+
+          .add-to-cart-disabled {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: no-drop;
+            color: red;
+            border: 1px solid red;
+            border-radius: 10px;
+            width: 160px;
+            height: 40px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
+    .card-container:hover {
+      background-color: $bluegreen;
+    }
+
+    .card-container-unavailable:hover {
+      background-color: rgb(223, 77, 77, 0.3);
     }
   }
 }
