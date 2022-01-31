@@ -38,7 +38,9 @@ export function Home() {
       <Header setSearchTerm={setSearchTerm} />
       <div className={style.content}>
         {productModalOpen &&
-          <ModalProductDetails setProductModalOpen={setProductModalOpen} />
+          <ModalProductDetails
+            setProductModalOpen={setProductModalOpen}
+          />
         }
         <div className={style.outdoor} />
         <div className={style['welcome-container']}>

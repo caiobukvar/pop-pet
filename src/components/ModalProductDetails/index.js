@@ -7,20 +7,23 @@ export default function ModalProductDetails({ setProductModalOpen }) {
     <div className={style.content}>
       <div className={style.container}>
         <div className={style.header}>
-          <button className={style['close-btn']} type="button" onClick={() => setProductModalOpen(false)}>
-            <img src="#" alt="" />
+          <button
+            className={style['close-btn']}
+            type="button"
+            onClick={() => setProductModalOpen(false)}
+          >
             X
           </button>
         </div>
         <div className={style.product}>
           <h2>Product Name</h2>
-          <img src="#" alt="product showcase" />
+          <img src="#" alt="product showcase" className={style.showcase} />
           <div className={style['product-info']}>
             <div className={style.details}>
               <p>price</p>
               <p>amount available</p>
             </div>
-            <p className={style.description}>description</p>
+            <p className={style.description}>This product is ...</p>
           </div>
           <div className={style['button-container']}>
             <button className={style['add-to-cart']}>
