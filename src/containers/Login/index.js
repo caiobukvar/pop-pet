@@ -20,10 +20,8 @@ export function Login() {
       const body = { username, password };
       const result = await api.post('/login', body);
 
-      console.log(result);
-
       if (result.status !== 200) {
-        throw 'Falha ao efetuar o login';
+        throw 'Login failed!';
       }
 
       const { data: { token, user: userData } } = result;
