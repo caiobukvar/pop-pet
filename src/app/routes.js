@@ -13,7 +13,7 @@ function ProtectedRoutes(props) {
   const { children } = props;
 
   return (
-    <Route render={() => (token ? children : <Redirect to="/home" />)} />
+    <Route render={() => (token ? children : <Redirect to="/login" />)} />
   );
 }
 
@@ -21,7 +21,7 @@ export function Routes() {
   return (
     <Switch>
       <StoresProvider>
-        <Route path="/" exact render={() => <Redirect to="/login" />} />
+        <Route path="/" exact render={() => <Redirect to="/home" />} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/home" component={Home} />

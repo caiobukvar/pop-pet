@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import FormCards from '../../components/FormCards';
 import api from '../../services/api';
 import { useStores } from '../../stores';
 import notify from '../../utils/notify';
@@ -42,40 +42,11 @@ export function Login() {
   return (
     <div className={style.container}>
       <div className={style.content}>
-        <div className={style.image}>
-          <h2>
-            Welcome to Pet Pop!
-          </h2>
-        </div>
-        <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
-          <h2>Login area:</h2>
-          <div className={style['input-container']}>
-            <div className={style.input}>
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                id="username"
-                placeholder="Insert your username"
-                {...register('username', { required: true })}
-              />
-            </div>
-            <div className={style.input}>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="Insert your password"
-                {...register('password', { required: true })}
-              />
-            </div>
-          </div>
-          <button type="submit" onSubmit={handleSubmit(onSubmit)}>
-            Login
-          </button>
-        </form>
-        <Link to="/register">
-          New here? Create an account!
-        </Link>
+        <FormCards
+          register={register}
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
+        />
       </div>
     </div>
   );
