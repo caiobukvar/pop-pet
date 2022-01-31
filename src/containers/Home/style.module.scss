@@ -17,9 +17,15 @@ $babyblue: #D4F1F4;
     justify-content: space-between;
     padding: 0 50px;
     align-items: center;
-    background-color: $bluegrotto;
+    background-color: $navyblue;
     height: 100px;
     width: 100%;
+
+    h2 {
+      color: $bluegreen;
+      font-size: 42px;
+      margin-left: 100px;
+    }
 
     .filter {
       position: relative;
@@ -49,6 +55,7 @@ $babyblue: #D4F1F4;
 
       .filter-input:focus {
         outline: 0.5px solid $navyblue;
+        border: 0;
       }
 
       .filter-button {
@@ -139,13 +146,14 @@ $babyblue: #D4F1F4;
       }
 
       .register {
-        color: $navyblue;
+        color: $babyblue;
         font-size: 16px;
         font-weight: 500;
       }
 
       .register:hover {
-        color: $babyblue;
+        color: $bluegreen;
+        text-decoration: underline;
       }
     }
   }
