@@ -9,7 +9,10 @@ import { useState } from "react";
 
 
 export default function Header({ setSearchTerm }) {
-  const { userStore: { token, handleClearUserData } } = useStores();
+  const {
+    userStore: { token, handleClearUserData },
+    cartStore: { cartItems }
+  } = useStores();
 
   const [isCartOpen, setIsCartOpen] = useState();
 
@@ -70,13 +73,13 @@ export default function Header({ setSearchTerm }) {
               <h3>Shopping Cart</h3>
             </div>
             <div className={style['cart-products']}>
-            cartArray.map((product) => {
+              {cartItems.map((product) => {
                 <div className={style.products}>
-                  {/* {product.name}
-                {product.value}
-                {product.quantity} */}
+                  {product.name}
+                  {product.value}
+                  {product.quantity}
                 </div>
-              });
+              })}
             </div>
           </div>
         </div>
