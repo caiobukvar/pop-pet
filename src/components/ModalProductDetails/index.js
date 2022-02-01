@@ -40,16 +40,24 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
           </button>
         </div>
         <div className={style.product}>
-          <h2>{productArray[0].name}</h2>
-          <img src={productArray[0].image} alt="product showcase" className={style.showcase} />
-          <div className={style['product-info']}>
-            <div className={style.details}>
-              <p>{productArray[0].price}</p>
-              <p>{productArray[0].stock}</p>
-              <p>{productArray[0].category}</p>
-            </div>
-            <p className={style.description}>{productArray[0].description}</p>
-          </div>
+          {productArray.length > 0 &&
+            <>
+              <h2>{productArray[0].name}</h2>
+              <img src={productArray[0].image} alt="product showcase" className={style.showcase} />
+              <div className={style['product-info']}>
+                <div className={style.details}>
+                  <p>${productArray[0].price}</p>
+                  <p>Stock: {productArray[0].stock}</p>
+                  <p>Category: {productArray[0].category}</p>
+                </div>
+                <h3>Product description</h3>
+                <p className={style.description}>
+                  {productArray[0].description}
+                </p>
+              </div>
+            </>
+          }
+
           <div className={style['button-container']}>
             <button className={style['add-to-cart']}>
               Add to cart

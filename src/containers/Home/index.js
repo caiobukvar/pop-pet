@@ -86,7 +86,7 @@ export function Home() {
                 <img src={product.image} alt="" />
               </div>
               <div>
-                {product.price.toLocaleString('en-us', { style: 'currency', currency: 'USD' })}
+                ${product.price}
               </div>
               <div className={style['card-bottom']}>
                 {product.stock === 0 &&
