@@ -5,10 +5,13 @@ import ShoppingCart from '../../assets/img/shopping-cart/shopping-cart.svg';
 import Login from '../../assets/img/login-button.svg';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import style from './style.module.scss';
+import { useState } from "react";
 
 
 export default function Header({ setSearchTerm }) {
   const { userStore: { token, handleClearUserData } } = useStores();
+
+  const [isCartOpen, setIsCartOpen] = useState();
 
   const history = useHistory();
 
@@ -39,7 +42,7 @@ export default function Header({ setSearchTerm }) {
         </button>
       </div>
       <div className={style['header-actions']}>
-        <button className={style.cart} type="button">
+        <button className={style.cart} type="button" onClick={() => setIsCartOpen(!isCartOpen)}>
           <img src={ShoppingCart} alt="" />
         </button>
         {
@@ -60,6 +63,24 @@ export default function Header({ setSearchTerm }) {
             <p className={style.register}>Register</p>
           </Link>}
       </div>
+      {isCartOpen &&
+        <div className={style['cart-container']}>
+          <div className={style.cart}>
+            <div>
+              <h3>Shopping Cart</h3>
+            </div>
+            <div className={style['cart-products']}>
+            cartArray.map((product) => {
+                <div className={style.products}>
+                  {/* {product.name}
+                {product.value}
+                {product.quantity} */}
+                </div>
+              });
+            </div>
+          </div>
+        </div>
+      }
     </div>
   );
 }

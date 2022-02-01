@@ -46,7 +46,7 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
               <img src={productArray[0].image} alt="product showcase" className={style.showcase} />
               <div className={style['product-info']}>
                 <div className={style.details}>
-                  <p>${productArray[0].price}</p>
+                  <p>$ {productArray[0].price}</p>
                   <p>Stock: {productArray[0].stock}</p>
                   <p>Category: {productArray[0].category}</p>
                 </div>
@@ -57,7 +57,6 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
               </div>
             </>
           }
-
           <div className={style['button-container']}>
             <button className={style['add-to-cart']}>
               Add to cart

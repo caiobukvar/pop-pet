@@ -147,6 +147,7 @@ form {
       flex-direction: column;
       gap: 5px;
       margin-bottom: 10px;
+      cursor: pointer;
 
       label {
         font-weight: 500;
@@ -176,5 +177,6 @@ form {
     color: $navyblue;
     font-size: 16px;
     font-weight: 600;
+    cursor: pointer;
   }
 }
