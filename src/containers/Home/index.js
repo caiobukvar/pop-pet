@@ -9,6 +9,7 @@ export function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [productModalOpen, setProductModalOpen] = useState(false);
   const [productArray, setProductArray] = useState([]);
+  const [requestedId, setRequestedId] = useState();
 
   useEffect(() => {
     async function getProducts() {
@@ -44,6 +45,11 @@ export function Home() {
     return null;
   }
 
+  function handleOpenModal(id) {
+    setProductModalOpen(true);
+    setRequestedId(id);
+  }
+
   return (
     <div className={style.container}>
       <Header setSearchTerm={setSearchTerm} />
@@ -51,6 +57,7 @@ export function Home() {
         {productModalOpen &&
           <ModalProductDetails
             setProductModalOpen={setProductModalOpen}
+            requestedId={requestedId}
           />
         }
         <div className={style.outdoor} />
@@ -72,7 +79,7 @@ export function Home() {
                   style['card-container-unavailable'] :
                   style['card-container']
               }
-              onClick={() => setProductModalOpen(true)}
+              onClick={() => handleOpenModal(product.id)}
             >
               <h3>{product.name}</h3>
               <div className={style['card-image']}>
