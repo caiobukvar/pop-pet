@@ -43,10 +43,9 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
       }
     )
 
-    setCartItems(cart);
-
+    setCartItems(cart, ...cart);
   }
-  console.log(cartItems);
+
 
   return (
     <div className={style.content}>
