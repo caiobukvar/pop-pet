@@ -27,7 +27,7 @@ export function Routes() {
         <Route path="/home" component={Home} />
 
         <ProtectedRoutes>
-          <Route path="/home/admin" component={Admin} />
+          <Route path="/admin" component={Admin} />
         </ProtectedRoutes>
       </StoresProvider>
     </Switch>
