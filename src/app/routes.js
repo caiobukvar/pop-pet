@@ -6,6 +6,7 @@ const Home = React.lazy(async () => import('../containers/Home').then((m) => ({ 
 const Login = React.lazy(async () => import('../containers/Login').then((m) => ({ default: m.Login })));
 const Register = React.lazy(async () => import('../containers/Register').then((m) => ({ default: m.Register })));
 const Admin = React.lazy(async () => import('../containers/Admin').then((m) => ({ default: m.Admin })));
+const Checkout = React.lazy(async () => import('../containers/Checkout').then((m) => ({ default: m.Checkout })));
 
 function ProtectedRoutes(props) {
   const { userStore: { token } } = useStores();
@@ -28,6 +29,7 @@ export function Routes() {
 
         <ProtectedRoutes>
           <Route path="/admin" component={Admin} />
+          <Route path="/checkout" component={Checkout} />
         </ProtectedRoutes>
       </StoresProvider>
     </Switch>

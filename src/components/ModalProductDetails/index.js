@@ -3,9 +3,11 @@ import AddToCart from '../../assets/img/shopping-cart/shopping-cart-add.svg';
 import { useEffect, useState } from 'react';
 import notify from '../../utils/notify';
 import api from '../../services/api';
+import { useStores } from '../../stores';
 
 
 export default function ModalProductDetails({ setProductModalOpen, requestedId }) {
+  const { cartStore: { cartItems, setCartItems } } = useStores();
   const [productArray, setProductArray] = useState({});
 
 
@@ -26,7 +28,26 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
     getProducts(requestedId);
   }, []);
 
-  console.log(productArray)
+
+  function addToCart(product) {
+
+    const cart = [];
+
+    const selectedProduct = product;
+
+    cart.push(
+      {
+        name: selectedProduct[0].name,
+        price: selectedProduct[0].price,
+        stock: selectedProduct[0].stock,
+        quantity: +1
+      }
+    )
+
+    setCartItems(cart);
+  }
+
+
   return (
     <div className={style.content}>
       <div className={style.container}>
@@ -55,14 +76,23 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
                   {productArray[0].description}
                 </p>
               </div>
+              <div className={style['button-container']}>
+                {productArray[0].stock === 0
+                  ?
+                  <p className={style.red}>This product is out of stock!</p>
+                  :
+                  <button
+                    className={style['add-to-cart']}
+                    type="button"
+                    onClick={() => addToCart(productArray)}
+                  >
+                    Add to cart
+                    <img src={AddToCart} alt="cart icon" />
+                  </button>
+                }
+              </div>
             </>
           }
-          <div className={style['button-container']}>
-            <button className={style['add-to-cart']}>
-              Add to cart
-              <img src={AddToCart} alt="cart icon" />
-            </button>
-          </div>
         </div>
       </div>
     </div>

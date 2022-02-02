@@ -9,7 +9,11 @@ import { useState } from "react";
 
 
 export default function Header({ setSearchTerm }) {
-  const { userStore: { token, handleClearUserData } } = useStores();
+
+  const {
+    userStore: { token, handleClearUserData },
+    cartStore: { cartItems, setCartItems }
+  } = useStores();
 
   const [isCartOpen, setIsCartOpen] = useState();
 
@@ -22,6 +26,10 @@ export default function Header({ setSearchTerm }) {
   function handleLogout() {
     handleClearUserData();
     history.push("/login");
+  }
+
+  function handleCheckout() {
+    history.push("/checkout");
   }
 
   return (
@@ -70,13 +78,27 @@ export default function Header({ setSearchTerm }) {
               <h3>Shopping Cart</h3>
             </div>
             <div className={style['cart-products']}>
-            cartArray.map((product) => {
-                <div className={style.products}>
-                  {/* {product.name}
-                {product.value}
-                {product.quantity} */}
+              {cartItems.map((product) => (
+                <div className={style.products} key={product.id}>
+                  <div className={style.name} key={product.id}>
+                    {product.name}
+                  </div>
+                  <div className={style.info} key={product.id}>
+                    <p>Subtotal: ${product.price * product.quantity}</p>
+
+                    <p>Quantity: {product.quantity}</p>
+
+                    <p>Units left: {product.stock}</p>
+                  </div>
                 </div>
-              });
+              ))}
+              <div
+                className={style.checkout}
+                type="button"
+                onClick={() => handleCheckout()
+                }>
+                <button>Checkout</button>
+              </div>
             </div>
           </div>
         </div>
