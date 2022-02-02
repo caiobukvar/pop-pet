@@ -1,0 +1,47 @@
+$navyblue: #05445E;
+$bluegrotto: #189AB4;
+$bluegreen: #75E6DA;
+$babyblue: #D4F1F4;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: 50px;
+
+    h2 {
+      color: $navyblue;
+      font-size: 40px;
+    }
+
+    .construction {
+      width: 500px;
+      height: 400px;
+    }
+
+    .home {
+      all: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 15px;
+      height: 50px;
+      width: 120px;
+      background-color: $navyblue;
+      color: $bluegreen;
+      border: 0.5px solid $bluegreen;
+    }
+
+  }
+}
