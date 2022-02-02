@@ -28,6 +28,7 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
     getProducts(requestedId);
   }, []);
 
+
   function addToCart(product) {
 
     const cart = [];
@@ -39,11 +40,11 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
         name: selectedProduct[0].name,
         price: selectedProduct[0].price,
         stock: selectedProduct[0].stock,
-        quantity: 1
+        quantity: +1
       }
     )
 
-    setCartItems(cart, ...cart);
+    setCartItems(cart);
   }
 
 

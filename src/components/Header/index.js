@@ -80,10 +80,10 @@ export default function Header({ setSearchTerm }) {
             <div className={style['cart-products']}>
               {cartItems.map((product) => (
                 <div className={style.products} key={product.id}>
-                  <div className={style.name}>
+                  <div className={style.name} key={product.id}>
                     {product.name}
                   </div>
-                  <div className={style.info}>
+                  <div className={style.info} key={product.id}>
                     <p>Subtotal: ${product.price * product.quantity}</p>
 
                     <p>Quantity: {product.quantity}</p>
