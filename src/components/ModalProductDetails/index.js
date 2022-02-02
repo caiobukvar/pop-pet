@@ -8,7 +8,7 @@ import { useStores } from '../../stores';
 
 export default function ModalProductDetails({ setProductModalOpen, requestedId }) {
   const { cartStore: { cartItems, setCartItems } } = useStores();
-  const [productArray, setProductArray] = useState({});
+  const [product, setProduct] = useState({});
 
 
   useEffect(() => {
@@ -16,7 +16,12 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
       try {
         const result = await api.get(`/products/${id}`);
         const { data } = result;
-        setProductArray(data);
+
+        if (!data.length) {
+          return;
+        }
+
+        setProduct(data[0]);
 
       } catch (error) {
         const { request } = error;
@@ -31,36 +36,25 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
 
   function addToCart(product) {
 
-    let cart = [];
+    const cart = [...cartItems];
+    const findProduct = cart.find((item) => item.id === product.id);
 
-    if (cartItems) {
-      cart = [...cartItems];
-    }
 
-    const selectedProduct = product;
-
-    if (selectedProduct.id === cart.id) {
+    if (!findProduct) {
       cart.push(
         {
-          id: selectedProduct.id,
-          name: selectedProduct.name,
-          price: selectedProduct.price,
-          stock: selectedProduct.stock,
-          quantity: selectedProduct.quantity + 1
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          stock: product.stock,
+          quantity: 1
         }
       )
+      setCartItems(cart);
+      return;
     }
 
-    cart.push(
-      {
-        id: selectedProduct[0].id,
-        name: selectedProduct[0].name,
-        price: selectedProduct[0].price,
-        stock: selectedProduct[0].stock,
-        quantity: 1
-      }
-    )
-
+    findProduct.quantity = findProduct.quantity + 1;
     setCartItems(cart);
   }
 
@@ -78,30 +72,30 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
           </button>
         </div>
         <div className={style.product}>
-          {productArray.length > 0 &&
+          {product &&
             <>
-              <h2>{productArray[0].name}</h2>
-              <img src={productArray[0].image} alt="product showcase" className={style.showcase} />
+              <h2>{product.name}</h2>
+              <img src={product.image} alt="product showcase" className={style.showcase} />
               <div className={style['product-info']}>
                 <div className={style.details}>
-                  <p>$ {productArray[0].price}</p>
-                  <p>Stock: {productArray[0].stock}</p>
-                  <p>Category: {productArray[0].category}</p>
+                  <p>$ {product.price}</p>
+                  <p>Stock: {product.stock}</p>
+                  <p>Category: {product.category}</p>
                 </div>
                 <h3>Product description</h3>
                 <p className={style.description}>
-                  {productArray[0].description}
+                  {product.description}
                 </p>
               </div>
               <div className={style['button-container']}>
-                {productArray[0].stock === 0
+                {product.stock === 0
                   ?
                   <p className={style.red}>This product is out of stock!</p>
                   :
                   <button
                     className={style['add-to-cart']}
                     type="button"
-                    onClick={() => addToCart(productArray)}
+                    onClick={() => addToCart(product)}
                   >
                     Add to cart
                     <img src={AddToCart} alt="cart icon" />
