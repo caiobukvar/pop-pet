@@ -74,7 +74,7 @@ $babyblue: #D4F1F4;
     gap: 20px;
     height: 100%;
 
-    .cart {
+    .cart-button {
       all: unset;
       display: flex;
       flex-direction: row;
@@ -96,7 +96,7 @@ $babyblue: #D4F1F4;
       }
     }
 
-    .cart:hover {
+    .cart-button:hover {
       background-color: $bluegreen;
     }
 

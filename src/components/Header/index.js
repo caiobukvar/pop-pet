@@ -54,7 +54,7 @@ export default function Header({ setSearchTerm }) {
         </button>
       </div>
       <div className={style['header-actions']}>
-        <button className={style.cart} type="button" onClick={() => setIsCartOpen(!isCartOpen)}>
+        <button className={style['cart-button']} type="button" onClick={() => setIsCartOpen(!isCartOpen)}>
           <img src={ShoppingCart} alt="" />
         </button>
         {
@@ -84,11 +84,11 @@ export default function Header({ setSearchTerm }) {
             <div className={style['cart-products']}>
               {cartItems.map((product) => (
                 <div className={style.products} key={product.id}>
-                  <div className={style.name} key={product.id}>
+                  <div className={style.name} >
                     {product.name}
                   </div>
-                  <div className={style.info} key={product.id}>
-                    <p>Subtotal: ${product.price * product.quantity}</p>
+                  <div className={style.info} >
+                    <p>Subtotal: ${(product.price * product.quantity).toFixed(2)}</p>
 
                     <p>Quantity: {product.quantity}</p>
 
