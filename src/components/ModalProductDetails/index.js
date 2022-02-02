@@ -31,16 +31,33 @@ export default function ModalProductDetails({ setProductModalOpen, requestedId }
 
   function addToCart(product) {
 
-    const cart = [];
+    let cart = [];
+
+    if (cartItems) {
+      cart = [...cartItems];
+    }
 
     const selectedProduct = product;
 
+    if (selectedProduct.id === cart.id) {
+      cart.push(
+        {
+          id: selectedProduct.id,
+          name: selectedProduct.name,
+          price: selectedProduct.price,
+          stock: selectedProduct.stock,
+          quantity: selectedProduct.quantity + 1
+        }
+      )
+    }
+
     cart.push(
       {
+        id: selectedProduct[0].id,
         name: selectedProduct[0].name,
         price: selectedProduct[0].price,
         stock: selectedProduct[0].stock,
-        quantity: +1
+        quantity: 1
       }
     )
 

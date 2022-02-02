@@ -32,6 +32,10 @@ export default function Header({ setSearchTerm }) {
     history.push("/checkout");
   }
 
+  function handleClearCart() {
+    setCartItems([]);
+  }
+
   return (
     <div className={style.header}>
       <h2>PET POP</h2>
@@ -92,12 +96,16 @@ export default function Header({ setSearchTerm }) {
                   </div>
                 </div>
               ))}
-              <div
-                className={style.checkout}
-                type="button"
-                onClick={() => handleCheckout()
-                }>
-                <button>Checkout</button>
+              <div className={style.checkout}>
+                <button
+                  type="button"
+                  className={style.clearCart}
+                  onClick={() => handleClearCart()}
+                >Clear Cart</button>
+                <button
+                  type="button"
+                  onClick={() => handleCheckout()
+                  }>Checkout</button>
               </div>
             </div>
           </div>

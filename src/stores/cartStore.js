@@ -10,6 +10,6 @@ export function useCart() {
   return {
     handleClearCart,
     setCartItems,
-    cartItems
+    cartItems,
   };
 }

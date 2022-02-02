@@ -204,6 +204,7 @@ $babyblue: #D4F1F4;
       .checkout {
         display: flex;
         justify-content: center;
+        margin-top: 10px;
 
         button {
           all: unset;
@@ -216,6 +217,19 @@ $babyblue: #D4F1F4;
           width: 120px;
           border-radius: 20px;
           background-color: $navyblue;
+        }
+
+        .clearCart {
+          all: unset;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $navyblue;
+          height: 60px;
+          width: 120px;
+          border-radius: 20px;
+          background-color: #fefefe;
         }
       }
     }
